@@ -1,0 +1,172 @@
+@page { margin: 0; size: 80mm auto; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            width: 78mm;
+            max-width: 78mm;
+            margin: 0 auto;
+            padding: 4mm 2mm;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            line-height: 1.35;
+            color: #000000;
+            background: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .ticket-center { text-align: center; }
+        .ticket-brand { font-size: 14px; font-weight: bold; display: block; margin-bottom: 2px; }
+        .ticket-meta { font-size: 10px; }
+        .ticket-dashed { margin: 6px 0; border-bottom: 1px dashed #000000; }
+        .ticket-doc-type { font-weight: bold; font-size: 11px; }
+        .ticket-code { font-weight: bold; font-size: 12px; margin-top: 2px; }
+        .ticket-data-grid { display: flex; flex-direction: column; gap: 2px; font-size: 10.5px; }
+        .ticket-items-table { width: 100%; border-collapse: collapse; font-size: 10px; margin: 4px 0; }
+        .ticket-items-table th { border-bottom: 1px solid #000000; padding: 2px 1px; font-weight: bold; font-size: 10px; }
+        .ticket-items-table td { padding: 3px 1px; vertical-align: top; }
+        .ticket-totals { display: flex; flex-direction: column; gap: 2px; font-size: 11px; }
+        .tt-row { display: flex; justify-content: space-between; }
+        .tt-total { font-size: 12px; font-weight: bold; margin-top: 3px; border-top: 1px solid #000; padding-top: 2px; }
+        .ticket-payment-info { font-size: 10.5px; }
+        .ticket-footer p { margin: 2px 0; font-size: 9.5px; }
+        .ticket-barcode { margin-top: 6px; letter-spacing: 2px; font-size: 14px; font-weight: bold; }
+
+.cashier-history{max-width:1180px;margin:10px auto 30px;padding:0;color:#183a31}
+        .cashier-history-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-bottom:18px;border-bottom:1px solid #dce8df;margin-bottom:18px}
+        .staff-section-kicker{font-size:.7rem;font-weight:850;letter-spacing:.1em;color:#15803d}
+        .cashier-history h1{margin:4px 0;font-size:1.75rem;color:#0f172a}
+        .cashier-history p{margin:0;color:#64748b}
+        .cashier-return-pos{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;background:#15803d;color:#fff;text-decoration:none;font-size:.85rem;font-weight:800;border-radius:8px;transition:all .2s ease}
+        .cashier-return-pos:hover{background:#166534;transform:translateY(-1px)}
+
+        /* Tarjetas Métricas */
+        .history-metrics-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:14px;margin-bottom:18px}
+        .h-metric-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:3px}
+        .h-metric-label{font-size:0.68rem;font-weight:800;color:#64748b;letter-spacing:0.04em}
+        .h-metric-val{font-size:1.55rem;font-weight:800;line-height:1.15}
+        .h-metric-foot{font-size:0.75rem;color:#94a3b8}
+
+        /* Barra de Filtros */
+        .history-filters-bar{display:flex;align-items:center;gap:10px;padding:14px;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:18px;flex-wrap:wrap}
+        .search-input-wrap{position:relative;flex:1;min-width:240px}
+        .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:0.85rem}
+        .search-input-wrap input{width:100%;padding:9px 12px 9px 34px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.84rem;color:#0f172a;box-sizing:border-wrap}
+        .search-input-wrap input:focus{outline:none;border-color:#15803d;box-shadow:0 0 0 3px rgba(21,128,61,0.12)}
+
+        .filter-group{display:flex;align-items:center;gap:6px}
+        .filter-label{font-size:0.78rem;font-weight:700;color:#475569}
+        .filter-group select, .filter-group input[type="date"]{padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.82rem;color:#0f172a;background:#ffffff;cursor:pointer}
+        .filter-group select:focus, .filter-group input:focus{outline:none;border-color:#15803d}
+
+        .btn-reset-filters{padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#f8fafc;color:#475569;font-size:0.8rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s ease}
+        .btn-reset-filters:hover{background:#e2e8f0;color:#0f172a}
+
+        /* Tabla */
+        .cashier-history-table-wrap{overflow-x:auto;background:#fff;border:1px solid #dce7e1;border-radius:10px}
+        .cashier-history-table{width:100%;border-collapse:collapse;min-width:760px;text-align:left}
+        .cashier-history-table th{padding:12px 16px;background:#f8fafc;color:#64748b;font-size:.7rem;font-weight:700;letter-spacing:.04em}
+        .cashier-history-table td{padding:12px 16px;border-top:1px solid #edf1ee;color:#334155;font-size:.85rem;vertical-align:middle}
+        .cashier-history-table td small{display:block;margin-top:2px;color:#94a3b8;font-size:0.75rem}
+        .cashier-history-table .amount{text-align:right;color:#15803d;font-weight:800}
+        .cashier-history-empty{text-align:center;padding:48px 16px;color:#64748b;font-size:0.88rem}
+
+        .badge-metodo{display:inline-block;padding:3px 8px;border-radius:4px;font-size:0.72rem;font-weight:700;background:#f1f5f9;color:#475569}
+        .badge-metodo.metodo-efectivo{background:#dcfce7;color:#15803d}
+        .badge-metodo.metodo-yape, .badge-metodo.metodo-plin{background:#e0f2fe;color:#0284c7}
+        .badge-metodo.metodo-tarjeta{background:#ede9fe;color:#7c3aed}
+
+        /* ACCIONES (Estilo de la imagen de referencia) */
+        .action-buttons-wrap{display:flex;gap:6px;align-items:center;justify-content:center}
+        .btn-action-history{width:36px;height:36px;border:none;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;color:#ffffff;cursor:pointer;transition:transform .15s ease, background .2s ease;box-shadow:0 2px 4px rgba(0,0,0,0.08)}
+        .btn-action-history:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,0.12)}
+        .btn-action-history svg{stroke-width:2.2}
+
+        /* Botón Azul: Previsualizar (Ojo) */
+        .btn-action-history.btn-preview{background:#0284c7}
+        .btn-action-history.btn-preview:hover{background:#0369a1}
+
+        /* Botón Verde: Imprimir (Impresora) */
+        .btn-action-history.btn-print{background:#15803d}
+        .btn-action-history.btn-print:hover{background:#166534}
+
+        /* MODAL PREVISUALIZACIÓN DE TICKET */
+        .ticket-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.65);z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px}
+        .ticket-modal-content{background:#ffffff;border-radius:14px;max-width:420px;width:100%;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 25px 50px -12px rgba(0,0,0,0.4);overflow:hidden}
+        .ticket-modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid #e2e8f0;background:#ffffff}
+        .ticket-modal-header h3{margin:0;font-size:1.02rem;color:#0f172a;display:flex;align-items:center}
+        .ticket-modal-body{padding:16px;overflow-y:auto;background:#f8fafc;flex:1}
+
+        /* TICKET TÉRMICO 80MM */
+        .ticket-thermal-box{background:#ffffff;padding:20px 18px;border:1px solid #e2e8f0;border-radius:6px;max-width:320px;margin:0 auto;font-family:'Courier New', Courier, monospace;font-size:11px;color:#000000;line-height:1.35;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+        .ticket-center{text-align:center}
+        .ticket-brand{font-size:15px;display:block;margin-bottom:2px}
+        .ticket-meta{font-size:10px}
+        .ticket-dashed{margin:8px 0;border-bottom:1px dashed #000000}
+        .ticket-doc-type{font-weight:bold;font-size:12px}
+        .ticket-code{font-weight:bold;font-size:13px;margin-top:2px}
+        .ticket-data-grid{display:flex;flex-direction:column;gap:3px;font-size:10.5px}
+        .ticket-items-table{width:100%;border-collapse:collapse;font-size:10.5px;margin:4px 0}
+        .ticket-items-table th{border-bottom:1px solid #000000;padding:3px 2px}
+        .ticket-items-table td{padding:3px 2px;vertical-align:top}
+        .ticket-totals{display:flex;flex-direction:column;gap:3px;font-size:11px}
+        .tt-row{display:flex;justify-content:space-between}
+        .tt-total{font-size:13px;font-weight:bold;margin-top:3px}
+        .ticket-payment-info{font-size:10.5px}
+        .ticket-footer p{margin:2px 0;font-size:9.5px}
+        .ticket-barcode{margin-top:6px;letter-spacing:2px;font-size:16px}
+
+        .ticket-modal-actions{display:flex;gap:10px;padding:14px 18px;border-top:1px solid #e2e8f0;background:#ffffff}
+        .btn-ticket-print{flex:1;min-height:40px;background:#15803d;color:#ffffff;border:none;border-radius:8px;font-weight:800;font-size:0.88rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s ease}
+        .btn-ticket-print:hover{background:#166534}
+        .btn-ticket-close{padding:0 16px;min-height:40px;background:#f1f5f9;color:#475569;border:none;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer}
+        .btn-ticket-close:hover{background:#e2e8f0;color:#0f172a}
+
+        /* ESTILOS DE IMPRESIÓN LIMPIOS */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+            }
+            .staff-sidebar,
+            .staff-topbar,
+            .cashier-history,
+            .ticket-no-print {
+                display: none;
+            }
+            #modalTicketPreview {
+                position: static;
+                display: block;
+                background: none;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+            }
+            .ticket-modal-content {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ticket-modal-body {
+                background: none;
+                padding: 0;
+            }
+            .ticket-thermal-box {
+                box-shadow: none;
+                border: none;
+                width: 78mm;
+                max-width: 78mm;
+                margin: 0 auto;
+                padding: 4mm;
+            }
+        }
+
+        @media(max-width:960px){
+            .history-metrics-grid{grid-template-columns:1fr}
+            .history-filters-bar{flex-direction:column;align-items:stretch}
+            .search-input-wrap{width:100%}
+            .filter-group{width:100%;justify-content:space-between}
+            .filter-group select, .filter-group input{flex:1}
+            .btn-reset-filters{width:100%;justify-content:center}
+        }

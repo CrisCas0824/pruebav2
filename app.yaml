@@ -1,0 +1,10 @@
+kind: wasmer.io/App.v0
+owner: harolflores
+name: php-harolflores
+package: .
+scaling:
+  mode: single_concurrency
+volumes:
+  - name: uploads-volume
+    mount: /app/uploads
+app_id: da_2yGI9trUYae4

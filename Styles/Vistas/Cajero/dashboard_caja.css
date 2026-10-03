@@ -1,0 +1,208 @@
+@page { margin: 0; size: 80mm auto; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            width: 78mm;
+            max-width: 78mm;
+            margin: 0 auto;
+            padding: 4mm 2mm;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            line-height: 1.35;
+            color: #000000;
+            background: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .ticket-center { text-align: center; }
+        .ticket-brand { font-size: 14px; font-weight: bold; display: block; margin-bottom: 2px; }
+        .ticket-meta { font-size: 10px; }
+        .ticket-dashed { margin: 6px 0; border-bottom: 1px dashed #000000; }
+        .ticket-doc-type { font-weight: bold; font-size: 11px; }
+        .ticket-code { font-weight: bold; font-size: 12px; margin-top: 2px; }
+        .ticket-data-grid { display: flex; flex-direction: column; gap: 2px; font-size: 10.5px; }
+        .ticket-items-table { width: 100%; border-collapse: collapse; font-size: 10px; margin: 4px 0; }
+        .ticket-items-table th { border-bottom: 1px solid #000000; padding: 2px 1px; font-weight: bold; font-size: 10px; }
+        .ticket-items-table td { padding: 3px 1px; vertical-align: top; }
+        .ticket-totals { display: flex; flex-direction: column; gap: 2px; font-size: 11px; }
+        .tt-row { display: flex; justify-content: space-between; }
+        .tt-total { font-size: 12px; font-weight: bold; margin-top: 3px; border-top: 1px solid #000; padding-top: 2px; }
+        .ticket-payment-info { font-size: 10.5px; }
+        .ticket-footer p { margin: 2px 0; font-size: 9.5px; }
+        .ticket-barcode { margin-top: 6px; letter-spacing: 2px; font-size: 14px; font-weight: bold; }
+
+.cashier-dashboard-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}
+        .cashier-dashboard-heading h1{margin:5px 0;font-size:1.65rem;color:#143b30}
+        .cashier-dashboard-heading p{margin:0;color:#65766d}
+        .staff-section-kicker{font-size:.68rem;font-weight:850;letter-spacing:.1em;color:#15803d}
+
+        .cashier-open-pos{min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 16px;border:0;border-radius:8px;background:#15803d;color:#fff;text-decoration:none;font:inherit;font-size:.85rem;font-weight:800;cursor:pointer;transition:all .2s ease}
+        .cashier-open-pos:hover{background:#166534;transform:translateY(-1px)}
+        .cashier-open-pos.secondary-btn{background:#ffffff;color:#15803d;border:1px solid #15803d}
+        .cashier-open-pos.secondary-btn:hover{background:#f0fdf4}
+
+        .cashier-pos-blocked{background:#fee2e2;color:#dc2626;padding:8px 14px;border-radius:8px;font-weight:700;font-size:.85rem;display:inline-flex;align-items:center;gap:8px}
+
+        /* Banner Turno Abierto / Cerrado */
+        .cashier-session-banner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 24px;border:1px solid #98d2a7;background:#ffffff;border-radius:10px;margin-bottom:20px}
+        .cashier-live{display:inline-flex;align-items:center;gap:7px;color:#15803d;font-size:.72rem;font-weight:850}
+        .cashier-live i{width:7px;height:7px;border-radius:50%;background:#16a34a}
+        .cashier-session-banner h2{margin:6px 0 2px;font-size:1.3rem;color:#0f172a}
+        .cashier-session-banner p{margin:0;color:#68776f;font-size:.84rem}
+        .cashier-expected{text-align:right}
+        .cashier-expected span{display:block;color:#718078;font-size:.66rem;font-weight:850;letter-spacing:.04em}
+        .cashier-expected strong{display:block;margin-top:4px;color:#15803d;font-size:1.7rem}
+
+        .cashier-closed-banner{display:flex;align-items:center;gap:18px;padding:20px;background:#ffffff;border:1px solid #fecaca;border-radius:10px;margin-bottom:20px}
+        .closed-banner-icon{width:48px;height:48px;border-radius:50%;background:#fee2e2;color:#dc2626;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+        .closed-tag{font-size:0.68rem;font-weight:800;color:#dc2626;letter-spacing:0.06em}
+        .cashier-closed-banner h3{margin:4px 0;font-size:1.1rem;color:#0f172a}
+        .cashier-closed-banner p{margin:0;color:#64748b;font-size:0.85rem}
+        .btn-goto-arqueo{margin-left:auto;min-height:40px;display:inline-flex;align-items:center;gap:8px;padding:0 16px;background:#dc2626;color:#ffffff;border-radius:8px;text-decoration:none;font-size:0.85rem;font-weight:800;white-space:nowrap}
+        .btn-goto-arqueo:hover{background:#b91c1c}
+
+        /* KPIs Grid */
+        .cashier-kpis-grid{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:14px;margin-bottom:24px}
+        .kpi-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:4px}
+        .kpi-title{font-size:0.68rem;font-weight:800;letter-spacing:0.04em;color:#64748b}
+        .kpi-val{font-size:1.65rem;color:#0f172a;font-weight:800;line-height:1.1}
+        .kpi-foot{font-size:0.75rem;color:#94a3b8}
+
+        /* 2-Column Row */
+        .cashier-dashboard-row{display:grid;grid-template-columns:1.1fr 0.9fr;gap:16px;margin-bottom:24px}
+        .dashboard-panel{background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:20px}
+        .panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+        .panel-header h2{font-size:1.02rem;color:#0f172a;margin:0;display:flex;align-items:center;gap:8px}
+        .panel-header span{font-size:0.75rem;color:#64748b}
+
+        /* Payments Breakdown */
+        .payments-breakdown{display:flex;flex-direction:column;gap:14px}
+        .payment-method-item{display:flex;flex-direction:column;gap:6px}
+        .pm-info{display:flex;justify-content:space-between;font-size:0.85rem}
+        .pm-name{display:flex;align-items:center;gap:6px;font-weight:600;color:#334155}
+        .pm-amount{font-weight:700;color:#0f172a}
+        .pm-bar-bg{height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden}
+        .pm-bar{height:100%;border-radius:4px;transition:width 0.4s ease}
+
+        .movement-quick-summary{display:flex;justify-content:space-between;padding:12px;background:#f8fafc;border-radius:8px;margin-top:4px}
+        .mqs-item{display:flex;flex-direction:column;gap:2px}
+        .mqs-item span{font-size:0.72rem;color:#64748b}
+        .mqs-item strong{font-size:0.95rem;color:#0f172a}
+
+        /* Quick Links */
+        .quick-links-grid{display:flex;flex-direction:column;gap:10px}
+        .quick-link-box{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;transition:all .2s ease}
+        .quick-link-box:hover{border-color:#15803d;transform:translateY(-1px);box-shadow:0 4px 12px rgba(21,128,61,0.06)}
+        .qlb-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+        .quick-link-box strong{display:block;font-size:0.88rem;color:#0f172a;margin-bottom:2px}
+        .quick-link-box p{margin:0;font-size:0.78rem;color:#64748b}
+
+        /* Table */
+        .cashier-movements-panel{background:#fff;border:1px solid #dfe9e3;border-radius:10px;overflow:hidden}
+        .cashier-section-title{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #edf2ee}
+        .cashier-section-title h2{margin:0;font-size:1rem;color:#173c31}
+        .cashier-table-scroll{overflow-x:auto}
+        .cashier-table-scroll table{width:100%;min-width:680px;border-collapse:collapse;text-align:left}
+        .cashier-table-scroll th{padding:12px 16px;background:#f8fafc;color:#64748b;font-size:.7rem;font-weight:700}
+        .cashier-table-scroll td{padding:12px 16px;border-top:1px solid #edf2ee;color:#334155;font-size:.82rem}
+        .cashier-align-right{text-align:right}
+        .cashier-no-data{text-align:center;padding:28px;color:#78877f}
+        .badge-metodo{padding:3px 8px;border-radius:4px;background:#f1f5f9;color:#475569;font-size:0.72rem;font-weight:700}
+
+        /* ACCIONES (Estilo de la imagen de referencia) */
+        .btn-action-history{width:34px;height:34px;border:none;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;color:#ffffff;cursor:pointer;transition:transform .15s ease, background .2s ease;box-shadow:0 2px 4px rgba(0,0,0,0.08)}
+        .btn-action-history:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,0.12)}
+        .btn-action-history.btn-preview{background:#0284c7}
+        .btn-action-history.btn-preview:hover{background:#0369a1}
+        .btn-action-history.btn-print{background:#15803d}
+        .btn-action-history.btn-print:hover{background:#166534}
+
+        /* MODAL PREVISUALIZACIÓN DE TICKET */
+        .ticket-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.65);z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px}
+        .ticket-modal-content{background:#ffffff;border-radius:14px;max-width:420px;width:100%;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 25px 50px -12px rgba(0,0,0,0.4);overflow:hidden}
+        .ticket-modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid #e2e8f0;background:#ffffff}
+        .ticket-modal-body{padding:16px;overflow-y:auto;background:#f8fafc;flex:1}
+
+        /* TICKET TÉRMICO 80MM */
+        .ticket-thermal-box{background:#ffffff;padding:20px 18px;border:1px solid #e2e8f0;border-radius:6px;max-width:320px;margin:0 auto;font-family:'Courier New', Courier, monospace;font-size:11px;color:#000000;line-height:1.35;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+        .ticket-center{text-align:center}
+        .ticket-brand{font-size:15px;display:block;margin-bottom:2px}
+        .ticket-meta{font-size:10px}
+        .ticket-dashed{margin:8px 0;border-bottom:1px dashed #000000}
+        .ticket-doc-type{font-weight:bold;font-size:12px}
+        .ticket-code{font-weight:bold;font-size:13px;margin-top:2px}
+        .ticket-data-grid{display:flex;flex-direction:column;gap:3px;font-size:10.5px}
+        .ticket-items-table{width:100%;border-collapse:collapse;font-size:10.5px;margin:4px 0}
+        .ticket-items-table th{border-bottom:1px solid #000000;padding:3px 2px}
+        .ticket-items-table td{padding:3px 2px;vertical-align:top}
+        .ticket-totals{display:flex;flex-direction:column;gap:3px;font-size:11px}
+        .tt-row{display:flex;justify-content:space-between}
+        .tt-total{font-size:13px;font-weight:bold;margin-top:3px}
+        .ticket-payment-info{font-size:10.5px}
+        .ticket-footer p{margin:2px 0;font-size:9.5px}
+        .ticket-barcode{margin-top:6px;letter-spacing:2px;font-size:16px}
+
+        .ticket-modal-actions{display:flex;gap:10px;padding:14px 18px;border-top:1px solid #e2e8f0;background:#ffffff}
+        .btn-ticket-print{flex:1;min-height:40px;background:#15803d;color:#ffffff;border:none;border-radius:8px;font-weight:800;font-size:0.88rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s ease}
+        .btn-ticket-print:hover{background:#166534}
+        .btn-ticket-close{padding:0 16px;min-height:40px;background:#f1f5f9;color:#475569;border:none;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer}
+        .btn-ticket-close:hover{background:#e2e8f0;color:#0f172a}
+
+        /* ESTILOS DE IMPRESIÓN LIMPIOS */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+            }
+            .staff-sidebar,
+            .staff-topbar,
+            .cashier-dashboard-heading,
+            .cashier-session-banner,
+            .cashier-closed-banner,
+            .cashier-kpis-grid,
+            .cashier-dashboard-row,
+            .cashier-movements-panel,
+            .ticket-no-print {
+                display: none;
+            }
+            #modalTicketPreview {
+                position: static;
+                display: block;
+                background: none;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+            }
+            .ticket-modal-content {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ticket-modal-body {
+                background: none;
+                padding: 0;
+            }
+            .ticket-thermal-box {
+                box-shadow: none;
+                border: none;
+                width: 78mm;
+                max-width: 78mm;
+                margin: 0 auto;
+                padding: 4mm;
+            }
+        }
+
+        @media(max-width:960px){
+            .cashier-kpis-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+            .cashier-dashboard-row{grid-template-columns:1fr}
+        }
+        @media(max-width:640px){
+            .cashier-dashboard-heading{align-items:flex-start;flex-direction:column}
+            .cashier-kpis-grid{grid-template-columns:1fr}
+            .cashier-session-banner{flex-direction:column;align-items:flex-start}
+            .cashier-expected{text-align:left}
+            .cashier-closed-banner{flex-direction:column;align-items:flex-start}
+            .btn-goto-arqueo{margin-left:0}
+        }

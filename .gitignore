@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+
+/scratch/
+/uploads/**
+!/uploads/**/.gitkeep
+
+/Historias de Usuario - 5 Modulos.docx
+/Taller 02 - Historias de Usuario (Sistema actual).docx

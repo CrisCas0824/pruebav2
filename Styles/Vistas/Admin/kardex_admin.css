@@ -1,0 +1,571 @@
+.kardex-view-wrapper {
+        padding: 24px 20px;
+        background: #f8fafc;
+        min-height: calc(100vh - 75px);
+        font-family: inherit;
+    }
+
+    /* Grid de tarjetas cuadradas compactas (CENTRADO TOTAL, sin iconos y sin borde superior) */
+    /* Grid de tarjetas cuadradas compactas (ESTILO COMPACTO Y HOVER VERDE) */
+    .kardex-stats-grid-square {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .kardex-stat-card-square {
+        min-height: 76px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 9px;
+        padding: 9px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrado horizontal */
+        justify-content: center; /* Centrado vertical */
+        text-align: center; /* Texto centrado */
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        user-select: none;
+        gap: 4px;
+        box-sizing: border-box;
+    }
+    .kardex-stat-card-square:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.14) !important;
+        border-color: #16a34a !important;
+    }
+    .kardex-stat-card-square.active-stat {
+        border-color: #15803d;
+        background: #f0fdf4;
+    }
+    .kardex-stat-title {
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        line-height: 1.2;
+        width: 100%;
+        text-align: center;
+    }
+    .kardex-stat-val {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #0f172a;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        width: 100%;
+        text-align: center;
+    }
+    .kardex-stat-sub {
+        font-size: 0.62rem;
+        color: #94a3b8;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    /* Barra de búsqueda y controles */
+    /* Barra de búsqueda y controles (Organizada & Responsiva) */
+    .kardex-controls-bar {
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .kardex-controls-main {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .kardex-search-box {
+        flex: 1 1 280px;
+        min-width: 220px;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .kardex-search-box svg {
+        position: absolute;
+        left: 14px;
+        color: #94a3b8;
+        pointer-events: none;
+    }
+    .kardex-search-input {
+        width: 100%;
+        padding: 10px 40px 10px 42px;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        font-size: 0.90rem;
+        font-weight: 600;
+        color: #0f172a;
+        background: #fff;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .kardex-search-input:focus {
+        border-color: #15803d;
+        box-shadow: 0 0 0 3px rgba(21,128,61,0.12);
+    }
+    .kardex-clear-search {
+        position: absolute;
+        right: 12px;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+        display: none;
+    }
+    .kardex-order-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 0 0 auto;
+    }
+    .kardex-control-label {
+        font-size: 0.76rem;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        white-space: nowrap;
+    }
+    .kardex-select-order {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230f2e5a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+        padding: 9px 38px 9px 14px;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 9px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #0f2e5a;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .kardex-select-order:hover {
+        border-color: #94a3b8;
+    }
+    .kardex-select-order:focus {
+        border-color: #15803d;
+        box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+    }
+
+    /* Fila de Filtro de Fechas */
+    .kardex-filters-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 12px;
+    }
+    .kardex-date-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .kardex-date-input {
+        padding: 8px 12px;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: #334155;
+        outline: none;
+        background: #fff;
+    }
+    .kardex-date-input:focus {
+        border-color: #15803d;
+    }
+    .kardex-btn-clear-date {
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 7px 14px;
+        font-size: 0.80rem;
+        font-weight: 700;
+        color: #475569;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+    .kardex-btn-clear-date:hover {
+        background: #e2e8f0;
+        color: #0f172a;
+    }
+
+    /* Tabla de Movimientos */
+    .kardex-table-card {
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1.5px solid #e2e8f0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        overflow: hidden;
+    }
+    .kardex-table-header {
+        padding: 16px 20px;
+        border-bottom: 1.5px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .kardex-table-title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .kardex-table-count {
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: #64748b;
+    }
+
+    .kardex-table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .kardex-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .kardex-table th {
+        background: #f8fafc;
+        padding: 11px 10px;
+        font-size: 0.72rem;
+        color: #475569;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        border-bottom: 1.5px solid #e2e8f0;
+        white-space: nowrap;
+    }
+    .kardex-table td {
+        padding: 11px 10px;
+        font-size: 0.85rem;
+        color: #334155;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+    .kardex-table tr:hover {
+        background: #f8fafc;
+    }
+
+    /* Badges de Tipo de Movimiento */
+    .kardex-badge {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: 800;
+        font-size: 0.76rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+    .kardex-badge.entrada {
+        background: #dcfce7;
+        color: #15803d;
+        border: 1.5px solid #bbf7d0;
+    }
+    .kardex-badge.ajuste {
+        background: #e0f2fe;
+        color: #0369a1;
+        border: 1.5px solid #bae6fd;
+    }
+
+    /* Paginación numerada inferior estilo Inventario */
+    .kardex-pagination-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 24px;
+        border-top: 1px solid #e2e8f0;
+        background: #ffffff;
+        gap: 14px;
+    }
+    .kardex-pag-info {
+        display: none;
+    }
+    .kardex-pag-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .kardex-pag-btn {
+        width: 48px;
+        height: 54px;
+        padding: 0;
+        border: 1px solid #d8e1eb;
+        border-radius: 9px;
+        background: #ffffff;
+        color: #334155;
+        font-size: 1.1rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+        text-decoration: none;
+    }
+    .kardex-pag-btn:hover:not(:disabled):not(.active) {
+        border-color: #86efac;
+        background: #f0fdf4;
+        color: #15803d;
+        box-shadow: 0 4px 10px rgba(21, 128, 61, 0.12);
+        transform: translateY(-2px);
+    }
+    .kardex-pag-btn:focus-visible {
+        outline: 3px solid rgba(21, 128, 61, 0.24);
+        outline-offset: 2px;
+    }
+    .kardex-pag-btn.active {
+        border-color: #15803d;
+        background: #15803d;
+        color: #ffffff;
+        cursor: default;
+        transform: none;
+        box-shadow: none;
+    }
+    .kardex-pag-btn:disabled {
+        opacity: 0.42;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Modal Ajuste Manual */
+    .kardex-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15,23,42,0.65);
+        backdrop-filter: blur(4px);
+        z-index: 99999;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+    }
+    .kardex-modal-card {
+        background: #ffffff;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 520px;
+        padding: 26px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        border: 1.5px solid #e2e8f0;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .kardex-type-selector {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+    .kardex-type-option {
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        padding: 10px 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: #475569;
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+    .kardex-type-option svg {
+        flex-shrink: 0;
+    }
+    .kardex-type-option.selected-entrada {
+        border-color: #15803d;
+        background: #f0fdf4;
+        color: #15803d;
+    }
+    .kardex-type-option.selected-salida {
+        border-color: #dc2626;
+        background: #fef2f2;
+        color: #dc2626;
+    }
+    .kardex-type-option.selected-ajuste {
+        border-color: #0284c7;
+        background: #f0f9ff;
+        color: #0284c7;
+    }
+
+    /* Buscador en vivo de productos en modal (Sin select estático) */
+    .kardex-prod-search-wrapper {
+        position: relative;
+    }
+    .kardex-prod-results-dropdown {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        max-height: 220px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+    }
+    .kardex-prod-result-item {
+        padding: 10px 14px;
+        border-bottom: 1px solid #f1f5f9;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.15s ease;
+    }
+    .kardex-prod-result-item:last-child {
+        border-bottom: none;
+    }
+    .kardex-prod-result-item:hover, .kardex-prod-result-item.highlighted {
+        background: #f8fafc;
+    }
+    .kardex-prod-item-name {
+        font-size: 0.90rem;
+        font-weight: 700;
+        color: #0f172a;
+    }
+    .kardex-prod-item-sku {
+        font-size: 0.74rem;
+        color: #64748b;
+        font-weight: 600;
+    }
+    .kardex-prod-item-stock {
+        font-size: 0.80rem;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 6px;
+        background: #f1f5f9;
+        color: #334155;
+    }
+    .kardex-selected-prod-badge {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        background: #f0fdf4;
+        border: 1.5px solid #bbf7d0;
+        border-radius: 10px;
+        margin-top: 8px;
+    }
+
+    /* REGLAS RESPONSIVAS KARDEX */
+    @media (max-width: 992px) {
+        .kardex-stats-grid-square {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+    @media (max-width: 768px) {
+        .kardex-view-wrapper {
+            padding: 16px 12px !important;
+        }
+        .kardex-stats-grid-square {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 6px !important;
+        }
+        .kardex-controls-main {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 10px !important;
+        }
+        .kardex-search-box {
+            width: 100% !important;
+            min-width: 100% !important;
+        }
+        .kardex-order-group {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+        .kardex-select-order {
+            flex: 1 !important;
+            width: 100% !important;
+        }
+        .kardex-filters-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 10px !important;
+        }
+        .kardex-date-group {
+            width: 100% !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 8px !important;
+        }
+        .kardex-date-input {
+            flex: 1 1 120px !important;
+            width: auto !important;
+        }
+        .kardex-btn-clear-date {
+            flex: 0 0 auto !important;
+        }
+        .kardex-modal-card {
+            width: 95% !important;
+            max-width: 100% !important;
+            padding: 18px !important;
+            max-height: 92vh !important;
+        }
+        .kardex-pag-btn {
+            width: 38px !important;
+            height: 44px !important;
+            font-size: 0.95rem !important;
+        }
+    }
+    @media (max-width: 480px) {
+        .kardex-stats-grid-square {
+            grid-template-columns: 1fr 1fr !important;
+        }
+        .kardex-date-group {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 6px !important;
+        }
+        .kardex-date-group .kardex-control-label {
+            grid-column: span 2 !important;
+        }
+        .kardex-btn-clear-date {
+            grid-column: span 2 !important;
+            width: 100% !important;
+            text-align: center !important;
+        }
+    }

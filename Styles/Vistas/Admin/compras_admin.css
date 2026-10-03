@@ -1,0 +1,425 @@
+.compras-view-wrapper {
+        padding: 24px 20px;
+        background: #f8fafc;
+        min-height: calc(100vh - 75px);
+        font-family: inherit;
+    }
+
+    /* GRID DE ESTADÍSTICAS COMPACTAS */
+    .compras-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .compras-stat-card {
+        min-height: 82px;
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        transition: all 0.2s ease;
+    }
+    .compras-stat-card:hover {
+        border-color: #15803d;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(21, 128, 61, 0.12);
+    }
+    .compras-stat-card.featured {
+        border-color: #10b981;
+        background: #f0fdf4;
+    }
+    .compras-stat-title {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .compras-stat-number {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1;
+        margin-top: 4px;
+    }
+    .compras-stat-card.featured .compras-stat-number {
+        color: #15803d;
+    }
+
+    /* CARD PRINCIPAL */
+    .compras-main-card {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1.5px solid #e2e8f0;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        overflow: hidden;
+    }
+    .compras-card-header {
+        padding: 16px 20px;
+        border-bottom: 1.5px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        background: #ffffff;
+    }
+    .compras-card-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .compras-controls {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .compras-search-wrapper {
+        position: relative;
+        min-width: 260px;
+    }
+    .compras-search-wrapper svg {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+    }
+    .compras-search-input {
+        width: 100%;
+        padding: 8px 14px 8px 36px;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        outline: none;
+        background: #f8fafc;
+        box-sizing: border-box;
+    }
+    .compras-search-input:focus {
+        border-color: #15803d;
+        background: #fff;
+    }
+    .compras-filter-select {
+        padding: 8px 12px;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #334155;
+        background: #f8fafc;
+        outline: none;
+        cursor: pointer;
+    }
+
+    /* TABLA */
+    .compras-table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .compras-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+        text-align: left;
+    }
+    .compras-table th {
+        background: #f8fafc;
+        color: #475569;
+        font-weight: 700;
+        padding: 12px 16px;
+        border-bottom: 1.5px solid #e2e8f0;
+        white-space: nowrap;
+    }
+    .compras-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+        vertical-align: middle;
+    }
+    .compras-table tr:hover {
+        background: #f8fafc;
+    }
+    .badge-ingreso {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: #ecfdf5;
+        color: #059669;
+        border: 1px solid #a7f3d0;
+        padding: 3px 9px;
+        border-radius: 20px;
+        font-size: 0.76rem;
+        font-weight: 800;
+    }
+
+    /* MODAL */
+    .comp-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        padding: 20px 16px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    .comp-modal-overlay.active {
+        display: flex;
+    }
+    .comp-modal-card {
+        background: #ffffff;
+        border-radius: 18px;
+        width: 100%;
+        max-width: 720px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.30);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        max-height: 90vh;
+        margin: auto;
+        border: 1.5px solid #e2e8f0;
+    }
+    .comp-modal-card form {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+        height: 100%;
+        margin: 0;
+    }
+    .comp-modal-header {
+        padding: 16px 22px;
+        background: linear-gradient(135deg, #15803d, #166534);
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .comp-modal-header h2 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .comp-modal-close {
+        background: rgba(255,255,255,0.18);
+        border: none;
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        transition: background 0.2s;
+    }
+    .comp-modal-close:hover {
+        background: rgba(255,255,255,0.30);
+    }
+    .comp-modal-body {
+        padding: 20px 24px;
+        overflow-y: auto;
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .comp-modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+    .comp-modal-body::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+    }
+    .comp-modal-body::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+    .comp-modal-body::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+    .comp-modal-footer {
+        padding: 14px 22px;
+        background: #f8fafc;
+        border-top: 1.5px solid #e2e8f0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .comp-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .comp-col-full {
+        grid-column: span 2;
+    }
+    .comp-label {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #334155;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    .comp-label.required::after {
+        content: ' *';
+        color: #ef4444;
+    }
+    .comp-input, .comp-select {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 0.90rem;
+        outline: none;
+        background: #fff;
+        box-sizing: border-box;
+    }
+    .comp-input:focus, .comp-select:focus {
+        border-color: #16a34a;
+        box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15);
+    }
+    .type-toggle-bar {
+        display: flex;
+        background: #f1f5f9;
+        border-radius: 10px;
+        padding: 4px;
+        gap: 4px;
+        margin-bottom: 8px;
+        border: 1px solid #e2e8f0;
+    }
+    .type-toggle-btn {
+        flex: 1;
+        padding: 9px 12px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .type-toggle-btn.active {
+        background: #fff;
+        color: #15803d;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .btn-inline-input-scanner {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        color: #15803d;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: background 0.15s, color 0.15s;
+    }
+    .btn-inline-input-scanner:hover {
+        background: #f0fdf4;
+        color: #166534;
+    }
+    .prod-search-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        max-height: 220px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+    }
+    .prod-search-dropdown.show {
+        display: block;
+    }
+    .prod-dropdown-item {
+        padding: 10px 14px;
+        border-bottom: 1px solid #f1f5f9;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.15s;
+    }
+    .prod-dropdown-item:hover {
+        background: #f0fdf4;
+    }
+    .caja-badge-info {
+        background: #f8fafc;
+        border: 1.5px dashed #cbd5e1;
+        border-radius: 10px;
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* PAGINACIÓN */
+    .compras-pagination-bar {
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1.5px solid #f1f5f9;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .compras-pag-nav {
+        display: flex;
+        gap: 5px;
+    }
+    .compras-pag-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1.5px solid #cbd5e1;
+        background: #fff;
+        color: #334155;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+    }
+    .compras-pag-btn.active {
+        background: #15803d;
+        color: #fff;
+        border-color: #15803d;
+    }

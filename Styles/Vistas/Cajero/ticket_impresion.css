@@ -1,0 +1,16 @@
+@page { margin: 0; size: 80mm auto; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    width: 78mm;
+    max-width: 78mm;
+    margin: 0 auto;
+    padding: 4mm 2mm;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #000000;
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+table { width: 100%; border-collapse: collapse; }

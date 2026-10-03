@@ -1,0 +1,682 @@
+.proveedores-view-wrapper {
+        padding: 24px 20px;
+        background: #f8fafc;
+        min-height: calc(100vh - 75px);
+        font-family: inherit;
+    }
+
+    /* GRID DE TARJETAS CUADRADAS COMPACTAS (Exactamente igual que Imagen 2 de Inventario) */
+    .prov-stats-grid-square {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+    .prov-stat-card-square {
+        min-height: 76px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 9px;
+        padding: 9px 11px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        user-select: none;
+        box-sizing: border-box;
+    }
+    .prov-stat-card-square:hover {
+        border-color: #16a34a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.12);
+    }
+    .prov-stat-card-square.active-stat {
+        border: 2px solid #16a34a;
+        background: #f0fdf4;
+        box-shadow: 0 4px 14px rgba(22, 163, 74, 0.15);
+    }
+    .prov-stat-title {
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        line-height: 1.2;
+    }
+    .prov-stat-number {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1;
+        margin-top: 4px;
+    }
+    .prov-stat-card-square.active-stat .prov-stat-title,
+    .prov-stat-card-square.active-stat .prov-stat-number {
+        color: #15803d;
+    }
+
+    /* TABS */
+    .prov-tabs-bar {
+        display: flex;
+        gap: 12px;
+        border-bottom: 2px solid #e2e8f0;
+        margin-bottom: 20px;
+    }
+    .tab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #64748b;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-bottom: -2px;
+    }
+    .tab-btn:hover {
+        color: #15803d;
+    }
+    .tab-btn.active {
+        color: #15803d;
+        border-bottom-color: #15803d;
+    }
+    .tab-badge {
+        background-color: #f1f5f9;
+        color: #334155;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 800;
+    }
+    .tab-btn.active .tab-badge {
+        background-color: #dcfce7;
+        color: #15803d;
+    }
+
+    /* CARD PRINCIPAL */
+    .prov-main-card {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1.5px solid #e2e8f0;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        overflow: hidden;
+    }
+    .prov-card-header {
+        padding: 16px 20px;
+        border-bottom: 1.5px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        background: #ffffff;
+    }
+    .prov-card-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #0f172a;
+    }
+    .prov-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .prov-search-wrapper {
+        position: relative;
+        min-width: 270px;
+    }
+    .prov-search-wrapper svg {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+        pointer-events: none;
+    }
+    .prov-search-input {
+        width: 100%;
+        padding: 9px 14px 9px 36px;
+        font-size: 0.88rem;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        outline: none;
+        transition: all 0.2s ease;
+        background: #ffffff;
+        box-sizing: border-box;
+    }
+    .prov-search-input:focus {
+        border-color: #15803d;
+        box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+    }
+    .prov-filter-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230f2e5a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+        padding: 9px 38px 9px 14px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #0f2e5a;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .prov-filter-select:hover {
+        border-color: #94a3b8;
+    }
+    .prov-filter-select:focus {
+        border-color: #15803d;
+        box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+    }
+
+    /* TABLA */
+    .prov-table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .prov-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .prov-table th {
+        background: #f8fafc;
+        padding: 12px 12px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color: #64748b;
+        border-bottom: 1.5px solid #e2e8f0;
+        white-space: nowrap;
+    }
+    .prov-table td {
+        padding: 12px 12px;
+        font-size: 0.86rem;
+        color: #334155;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+    .prov-table tbody tr:hover {
+        background-color: #f8fafc;
+    }
+
+    /* BADGES */
+    .badge-ruc {
+        font-family: monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #334155;
+        white-space: nowrap;
+    }
+    .badge-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #0f172a;
+        background: transparent;
+        padding: 0;
+        border: none;
+        white-space: nowrap;
+    }
+    .badge-status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+    }
+    .badge-status.activo .badge-status-dot { background-color: #16a34a; }
+    .badge-status.inactivo .badge-status-dot { background-color: #dc2626; }
+
+    /* BOTONES DE ACCIÓN (Exactos como Imagen 1 y Categorías) */
+    .btn-action-icon {
+        box-sizing: border-box;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 10px;
+        background: #15803d;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.25s, transform 0.2s, box-shadow 0.25s;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(21, 128, 61, 0.2);
+        line-height: 1;
+        flex-shrink: 0;
+    }
+    .btn-action-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+    .btn-action-icon:hover {
+        background-color: #166534;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+    }
+    .btn-action-icon:active {
+        transform: translateY(0) scale(0.98);
+    }
+    .btn-action-icon.danger {
+        background: #dc2626;
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+    }
+    .btn-action-icon.danger:hover {
+        background-color: #b91c1c;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.28);
+    }
+    .btn-action-icon.success {
+        background: #15803d;
+        box-shadow: 0 2px 8px rgba(21, 128, 61, 0.2);
+    }
+    .btn-action-icon.success:hover {
+        background-color: #166534;
+        box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+    }
+    .btn-action-icon.primary {
+        background: #0284c7;
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+    }
+    .btn-action-icon.primary:hover {
+        background-color: #0369a1;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.28);
+    }
+
+    /* PAGINACIÓN NUMERADA INFERIOR ESTILO INVENTARIO / KARDEX (Centrada con 48x54) */
+    .prov-pagination-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 24px;
+        border-top: 1px solid #e2e8f0;
+        background: #ffffff;
+        gap: 14px;
+    }
+    .prov-pag-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .prov-pag-btn {
+        width: 48px;
+        height: 54px;
+        padding: 0;
+        border: 1px solid #d8e1eb;
+        border-radius: 9px;
+        background: #ffffff;
+        color: #334155;
+        font-size: 1.1rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+        text-decoration: none;
+    }
+    .prov-pag-btn:hover:not(:disabled):not(.active) {
+        border-color: #86efac;
+        background: #f0fdf4;
+        color: #15803d;
+        box-shadow: 0 4px 10px rgba(21, 128, 61, 0.12);
+        transform: translateY(-2px);
+    }
+    .prov-pag-btn:focus-visible {
+        outline: 3px solid rgba(21, 128, 61, 0.24);
+        outline-offset: 2px;
+    }
+    .prov-pag-btn.active {
+        border-color: #15803d;
+        background: #15803d;
+        color: #ffffff;
+        cursor: default;
+        transform: none;
+        box-shadow: none;
+    }
+    .prov-pag-btn:disabled {
+        opacity: 0.42;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* MODALES CENTRADOS PERFECTAMENTE (Vertical y Horizontal - Imagen 2 y 3) */
+    .prov-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 99999;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    .prov-modal-card {
+        background: #ffffff;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 680px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        border: 1.5px solid #e2e8f0;
+        margin: auto;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .prov-modal-card form {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+        height: 100%;
+    }
+    .prov-modal-header {
+        padding: 18px 24px;
+        border-bottom: 1.5px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        background: #ffffff;
+    }
+    .prov-modal-header h2 {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .prov-modal-close {
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 4px;
+    }
+    .prov-modal-close:hover {
+        color: #0f172a;
+    }
+    .prov-modal-body {
+        padding: 22px 24px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        flex: 1 1 auto;
+        min-height: 0;
+        max-height: calc(90vh - 140px);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        box-sizing: border-box;
+    }
+    .prov-modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+    .prov-modal-body::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+    }
+    .prov-modal-body::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+    .prov-modal-body::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+    .prov-modal-footer {
+        padding: 16px 24px;
+        border-top: 1.5px solid #f1f5f9;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        background: #f8fafc;
+        flex-shrink: 0;
+    }
+    .prov-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .prov-col-full {
+        grid-column: span 2;
+    }
+    .prov-label {
+        display: block;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: #475569;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+    .prov-label.required::after {
+        content: ' *';
+        color: #dc2626;
+    }
+    .prov-input, .prov-select {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 0.90rem;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        outline: none;
+        background: #ffffff;
+        color: #0f172a;
+        box-sizing: border-box;
+    }
+    .prov-input:focus, .prov-select:focus {
+        border-color: #15803d;
+        box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.12);
+    }
+
+    /* PRODUCT SEARCH WITH SKU IN MODAL */
+    .prod-search-wrapper {
+        position: relative;
+    }
+    .prod-dropdown {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        max-height: 220px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+    }
+    .prod-dropdown.show { display: block; }
+    .prod-dropdown-item {
+        padding: 10px 14px;
+        border-bottom: 1px solid #f1f5f9;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.15s ease;
+    }
+    .prod-dropdown-item:hover { background: #f0fdf4; }
+    .prod-badge-sku {
+        font-family: monospace;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: #15803d;
+    }
+
+    /* TYPE TOGGLE (REPOSICIÓN VS NUEVO) */
+    .type-toggle-bar {
+        display: flex;
+        gap: 8px;
+        background: #f1f5f9;
+        padding: 4px;
+        border-radius: 10px;
+    }
+    .type-toggle-btn {
+        flex: 1;
+        padding: 8px 12px;
+        text-align: center;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: 8px;
+        border: none;
+        background: transparent;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .type-toggle-btn.active {
+        background: #ffffff;
+        color: #15803d;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* CAJA CHICA BOX */
+    .caja-box {
+        background: #f8fafc;
+        border: 1.5px dashed #cbd5e1;
+        border-radius: 10px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .caja-box.has-balance {
+        background: #f0fdf4;
+        border-color: #86efac;
+    }
+
+    .btn-inline-input-scanner {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        color: #15803d;
+        cursor: pointer;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: background 0.15s, color 0.15s;
+    }
+    .btn-inline-input-scanner:hover {
+        background: #f0fdf4;
+        color: #166534;
+    }
+
+    /* REGLAS RESPONSIVAS PROVEEDORES */
+    @media (max-width: 992px) {
+        .prov-stats-grid-square {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .proveedores-view-wrapper {
+            padding: 16px 12px;
+        }
+        .prov-stats-grid-square {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+        .prov-header-actions {
+            width: 100%;
+            flex-direction: column;
+        }
+        .prov-header-actions button {
+            width: 100%;
+            justify-content: center;
+        }
+        .prov-card-header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+        }
+        .prov-controls {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+        .prov-search-wrapper {
+            width: 100%;
+            min-width: 100%;
+        }
+        .prov-filter-select {
+            width: 100%;
+        }
+        .prov-modal-card {
+            width: 95%;
+            max-width: 100%;
+            padding: 16px;
+            max-height: 92vh;
+        }
+        .prov-modal-body {
+            padding: 16px 12px;
+        }
+        .prov-form-grid {
+            grid-template-columns: 1fr;
+        }
+        .prov-col-full {
+            grid-column: span 1;
+        }
+        .prov-pag-btn {
+            width: 38px;
+            height: 44px;
+            font-size: 0.95rem;
+        }
+    }
+    @media (max-width: 480px) {
+        .prov-stats-grid-square {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .prov-stat-card-square {
+            padding: 8px 6px;
+            min-height: 68px;
+        }
+        .prov-stat-title {
+            font-size: 0.58rem;
+        }
+        .prov-stat-number {
+            font-size: 1.15rem;
+        }
+    }

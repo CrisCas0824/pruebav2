@@ -1,0 +1,38 @@
+[
+    {
+        "imagen": "Images/123.webp",
+        "link": "#sugerenciasGrid",
+        "enlace": "#sugerenciasGrid",
+        "boton": "Ver más"
+    },
+    {
+        "imagen": "Images/1234.webp",
+        "link": "#sugerenciasGrid",
+        "enlace": "#sugerenciasGrid",
+        "boton": "Ver más"
+    },
+    {
+        "imagen": "Images/12345.webp",
+        "link": "#sugerenciasGrid",
+        "enlace": "#sugerenciasGrid",
+        "boton": "Ver más"
+    },
+    {
+        "imagen": "Images/123456.webp",
+        "link": "#sugerenciasGrid",
+        "enlace": "#sugerenciasGrid",
+        "boton": "Ver más"
+    },
+    {
+        "imagen": "Images/1234567.webp",
+        "link": "#sugerenciasGrid",
+        "enlace": "#sugerenciasGrid",
+        "boton": "Ver más"
+    },
+    {
+        "imagen": "Images/12345678.webp",
+        "link": "#sugerenciasGrid",
+        "enlace": "#sugerenciasGrid",
+        "boton": "Ver más"
+    }
+]

@@ -1,0 +1,357 @@
+/* Estilos Modernos de Arqueo y Caja Chica (Estilo Imagen 2 y 3) */
+    .caja-status-banner-modern {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        padding: 20px 24px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .caja-status-banner-modern.is-open {
+        border-color: #15803d;
+    }
+    .caja-status-banner-modern.is-closed {
+        border-color: #dc2626;
+    }
+
+    /* Tarjetas Pequeñas sin Icono */
+    .stats-grid-square {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .stat-card-square {
+        min-height: 76px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 9px;
+        padding: 9px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-align: center;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        user-select: none;
+    }
+    .stat-card-square:hover {
+        border-color: #16a34a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.12);
+    }
+    .stat-card-square .stat-title {
+        font-size: 0.62rem;
+        font-weight: 800;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        line-height: 1.2;
+    }
+    .stat-card-square .stat-val {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1;
+        margin-top: 8px;
+    }
+
+    /* Paneles de Tabla estilo Imagen 2 */
+    .caja-panel-card {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        margin-bottom: 24px;
+    }
+    .caja-panel-head {
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #f1f5f9;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+    .caja-panel-head h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #0f172a;
+    }
+
+    .caja-table-custom {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .caja-table-custom thead tr {
+        border-bottom: 2px solid #f1f5f9;
+    }
+    .caja-table-custom th {
+        padding: 10px 6px;
+        font-size: 0.70rem;
+        font-weight: 800;
+        color: #343536ff;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+    .caja-table-custom tbody tr {
+        border-bottom: 1px solid #f1f5f9;
+        transition: background 0.15s ease;
+    }
+
+    .caja-table-custom td {
+        padding: 9px 6px;
+        vertical-align: middle;
+        font-size: 0.78rem;
+        color: #334155;
+    }
+
+    /* Botones de acción principales */
+    .btn-caja-header {
+        padding: 9px 16px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+    .btn-caja-header:hover {
+        transform: translateY(-1px);
+    }
+    .btn-caja-green {
+        background: #15803d;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(21, 128, 61, 0.25);
+    }
+    .btn-caja-green:hover {
+        background: #166534;
+        box-shadow: 0 4px 12px rgba(21, 128, 61, 0.32);
+    }
+    .btn-caja-red {
+        background: #dc2626;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+    }
+    .btn-caja-red:hover {
+        background: #b91c1c;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.32);
+    }
+    .btn-caja-outline {
+        background: #ffffff;
+        color: #334155;
+        border: 1px solid #cbd5e1;
+    }
+    .btn-caja-outline:hover {
+        background: #f8fafc;
+        border-color: #94a3b8;
+    }
+
+    /* Paginación estilo Imagen 3 */
+    .pagination-page-button {
+        width: 44px;
+        height: 48px;
+        padding: 0;
+        border: 1px solid #d8e1eb;
+        border-radius: 9px;
+        background: #fff;
+        color: #334155;
+        font-size: 1rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.18s ease;
+    }
+    .pagination-page-button:hover:not(:disabled):not(.is-current) {
+        border-color: #86efac;
+        background: #f0fdf4;
+        color: #15803d;
+        box-shadow: 0 4px 10px rgba(21, 128, 61, 0.12);
+        transform: translateY(-2px);
+    }
+    .pagination-page-button.is-current {
+        border-color: #15803d;
+        background: #15803d;
+        color: #fff;
+        cursor: default;
+    }
+    .pagination-page-button:disabled {
+        opacity: 0.42;
+        cursor: not-allowed;
+    }
+
+    /* Modales */
+    .modal-overlay-caja {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.58);
+        z-index: 99999;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        backdrop-filter: blur(2px);
+    }
+    .modal-card-caja {
+        background: #ffffff;
+        border-radius: 18px;
+        width: 100%;
+        max-width: 490px;
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+        position: relative;
+        animation: cajaPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes cajaPopIn {
+        from { transform: scale(0.96) translateY(8px); opacity: 0; }
+        to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .modal-close-caja {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        border: none;
+        color: #64748b;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+    }
+    .modal-close-caja:hover {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    /* Notificación Toast Superior (Imagen 4) */
+    .top-notification-toast {
+        position: fixed;
+        top: 20px;
+        right: 24px;
+        z-index: 9999999;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .top-notification-toast.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .toast-card-top {
+        position: relative;
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+        padding: 14px 16px 16px 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 320px;
+        max-width: 440px;
+        overflow: hidden;
+    }
+    .toast-icon-circle {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #dcfce7;
+        color: #16a34a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .toast-icon-circle.error {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+    .toast-content-top {
+        flex: 1;
+        min-width: 0;
+    }
+    .toast-title-top {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1.2;
+    }
+    .toast-msg-top {
+        margin: 3px 0 0;
+        font-size: 0.84rem;
+        color: #475569;
+        line-height: 1.35;
+        word-break: break-word;
+    }
+    .toast-close-top {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: color 0.15s, background 0.15s;
+        flex-shrink: 0;
+    }
+    .toast-close-top:hover {
+        color: #0f172a;
+        background: #f1f5f9;
+    }
+    .toast-progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: #16a34a;
+        width: 100%;
+    }
+    .toast-progress-bar.error {
+        background: #dc2626;
+    }
+
+    @media (max-width: 768px) {
+        .stats-grid-square {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .caja-status-banner-modern {
+            flex-direction: column;
+            align-items: stretch;
+            text-align: left;
+        }
+        .top-notification-toast {
+            top: 12px;
+            right: 12px;
+            left: 12px;
+        }
+        .toast-card-top {
+            min-width: unset;
+            max-width: 100%;
+        }
+    }
